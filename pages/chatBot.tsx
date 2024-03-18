@@ -8,9 +8,14 @@ const { TextArea } = Input;
 export default function chatBotPage(): JSX.Element {
   const router: NextRouter = useRouter();
 
+  interface person {
+    name: string;
+    email: string;
+  }
+
   const [message, setMessage] = useState<string>("");
   const [response, setResponse] = useState<any>("");
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<person>(null);
 
   // const [histoires, setHistories] = useState(data.histories);
 
