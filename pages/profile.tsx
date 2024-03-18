@@ -1,9 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NextRouter, useRouter } from "next/router";
 import axios, { AxiosResponse } from "axios";
 import { Table, Button, Card, Typography, Flex } from "antd";
-import mocks from "../mocks.json";
-const { Text } = Typography;
 
 export default function ProfilePage() {
   const router: NextRouter = useRouter();
