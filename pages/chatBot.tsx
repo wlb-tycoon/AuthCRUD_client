@@ -1,8 +1,10 @@
 import { NextRouter, useRouter } from "next/router";
-import { Button, Card, Input, Typography } from "antd";
+import { Button, Card, Input } from "antd";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import data from "../mocks.json";
+
+const { TextArea } = Input;
 
 export default function chatBotPage(): JSX.Element {
   const router: NextRouter = useRouter();
@@ -92,7 +94,7 @@ export default function chatBotPage(): JSX.Element {
         </Button>
       </Card>
       <Card style={{ border: "4px solid orange" }}>
-        <Input value={response} />
+        <TextArea value={response} />
       </Card>
       <Input
         // style={{ position: "absolute", bottom: "10px", width: "93%" }}
