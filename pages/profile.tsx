@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { NextRouter, useRouter } from "next/router";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Table, Button, Card, Typography, Flex } from "antd";
 import mocks from "../mocks.json";
 const { Text } = Typography;
@@ -11,19 +11,19 @@ export default function ProfilePage() {
   const [user, setUser] = useState<any>({ name: "", email: "" });
 
   useEffect(() => {
-    const checkAuthentication = async () => {
+    const checkAuthentication = async (): Promise<any> => {
       try {
-        const token = localStorage.getItem("token");
+        const token: string = localStorage.getItem("token");
 
         if (!token) {
           // Redirect to the login page if token is not found
           router.push("/login");
         } else {
-          const res = axios.get(
+          const res: Promise<AxiosResponse<any, any>> = axios.get(
             process.env.NEXT_PUBLIC_BACKEND_API + "/api/checkAuth",
             { headers: { Authorization: `Bearer ${token}` } }
           );
-          const data = (await res).data;
+          const data: any = (await res).data;
           if ((await res).status !== 200) {
             router.push("/login");
           } else {
@@ -39,12 +39,12 @@ export default function ProfilePage() {
   }, []);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserData = async (): Promise<any> => {
       try {
-        const res = axios.get(
+        const res: Promise<AxiosResponse<any, any>> = axios.get(
           process.env.NEXT_PUBLIC_BACKEND_API + "/api/users"
         );
-        const _data = (await res).data;
+        const _data: any = (await res).data;
         setUsers(_data.users);
       } catch (error) {
         console.error("An error occurred:", error);
@@ -54,9 +54,9 @@ export default function ProfilePage() {
     fetchUserData();
   }, []);
 
-  const handleLogout = async () => {
+  const handleLogout = async (): Promise<void> => {
     try {
-      const response = axios.post(
+      const response: Promise<AxiosResponse<any, any>> = axios.post(
         process.env.NEXT_PUBLIC_BACKEND_API + "/api/logout"
       );
       if ((await response).status === 200) {
@@ -83,7 +83,7 @@ export default function ProfilePage() {
     },
   ];
 
-  const data = users.map((user, index) => ({
+  const data: any = users.map((user, index) => ({
     key: index,
     name: user.name,
     email: user.email,
@@ -91,14 +91,7 @@ export default function ProfilePage() {
 
   return (
     <Card style={{ height: "100vh" }}>
-      <Card
-        type="inner"
-        // style={{
-        //   display: "flex",
-        //   justifyContent: "space-between",
-        //   alignItems: "center",
-        // }}
-      >
+      <Card type="inner">
         <Button
           onClick={() => router.push("/chatBot")}
           style={{ margin: "20px" }}
