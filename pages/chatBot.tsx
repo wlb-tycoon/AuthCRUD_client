@@ -85,7 +85,7 @@ export default function chatBotPage(): JSX.Element {
         position: "relative",
       }}
     >
-      <Card style={{ border: "2px solid black" }}>
+      <Card>
         <Button onClick={handleLogout} style={{ margin: "20px" }}>
           Log Out
         </Button>
@@ -93,11 +93,10 @@ export default function chatBotPage(): JSX.Element {
           Send
         </Button>
       </Card>
-      <Card style={{ border: "4px solid orange" }}>
+      <Card>
         <TextArea value={response} />
       </Card>
       <Input
-        // style={{ position: "absolute", bottom: "10px", width: "93%" }}
         style={{ width: "93%", margin: "10px" }}
         onChange={(e) => {
           setMessage(e.target.value);
