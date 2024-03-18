@@ -2,7 +2,6 @@ import { NextRouter, useRouter } from "next/router";
 import { Button, Card, Input } from "antd";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
-import data from "../mocks.json";
 
 const { TextArea } = Input;
 
