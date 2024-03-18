@@ -1,6 +1,6 @@
-# AuthCRUD-Template_with_Nextts_Fastify_MySQL
+# AuthCRUD_client
 
-AuthCRUD-Template_with_Nextts_Fastify_MySQL is a web application built with Next.js, Ant Design, Fastify that provides user registration and login functionality. It allows users to create an account, log in, and access a protected dashboard.
+AuthCRUD_client is a web application built with Next.js, Ant Design, Fastify that provides user registration and login functionality. It allows users to create an account, log in, and access a protected dashboard.
 
 ## Features
 
@@ -40,7 +40,7 @@ AuthCRUD-Template_with_Nextts_Fastify_MySQL is a web application built with Next
 2. Install dependencies:
 
 ```bash
-cd AuthCRUD-Template_with_Nextts_Fastify_MySQL
+cd AuthCRUD_client
 npm install
 ```
 
@@ -70,7 +70,7 @@ npm run dev
 
 - Sign up: Fill out the registration form with your name, email, and password. Click the "Sign Up" button to create an account.
 - Log in: Enter your email and password in the login form. Click the "Login" button to authenticate.
-- Dashboard: After successful login, you will be redirected to the protected dashboard page.
+- Profile: After successful login, you will be redirected to the protected profile page.
 
 ### License
 
