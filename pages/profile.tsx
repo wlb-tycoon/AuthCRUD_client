@@ -4,14 +4,14 @@ import axios, { AxiosResponse } from "axios";
 import { Table, Button, Card, Typography, Flex } from "antd";
 
 export default function ProfilePage() {
-  interface person {
+  interface IUser {
     name: string;
     email: string;
   }
 
   const router: NextRouter = useRouter();
-  const [users, setUsers] = useState<person[]>([]); // origin value: null
-  const [user, setUser] = useState<person>({ name: "", email: "" });
+  const [users, setUsers] = useState<IUser[]>([]); // origin value: null
+  const [user, setUser] = useState<IUser>({ name: "", email: "" });
 
   useEffect(() => {
     const checkAuthentication = async (): Promise<any> => {
