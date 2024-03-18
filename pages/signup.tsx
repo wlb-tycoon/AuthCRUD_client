@@ -1,11 +1,11 @@
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { Button, Form, Input, Typography, Card } from "antd";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 const { Text } = Typography;
 
-const Signup = () => {
+const Signup = (): JSX.Element => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -15,7 +15,7 @@ const Signup = () => {
   const [emailError, setEmailError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
-  const router = useRouter();
+  const router: NextRouter = useRouter();
 
   const validateForm = (): boolean => {
     let isValid = true;
@@ -69,7 +69,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post(
+      const res: AxiosResponse<any, any> = await axios.post(
         process.env.NEXT_PUBLIC_BACKEND_API + "/api/signup",
         {
           name,

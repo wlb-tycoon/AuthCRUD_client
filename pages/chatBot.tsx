@@ -1,15 +1,21 @@
 import { NextRouter, useRouter } from "next/router";
-import { Button, Card, Input, Typography } from "antd";
+import { Button, Card, Input } from "antd";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
-import data from "../mocks.json";
+
+const { TextArea } = Input;
 
 export default function chatBotPage(): JSX.Element {
   const router: NextRouter = useRouter();
 
+  interface person {
+    name: string;
+    email: string;
+  }
+
   const [message, setMessage] = useState<string>("");
   const [response, setResponse] = useState<any>("");
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<person>(null);
 
   // const [histoires, setHistories] = useState(data.histories);
 
@@ -69,7 +75,6 @@ export default function chatBotPage(): JSX.Element {
         { message }
       );
       setResponse(res.data.response);
-      // setResponse(res.data.choices[0])
     } catch (error) {
       console.error("An error occurred while sending the message: ", error);
     }
@@ -79,11 +84,10 @@ export default function chatBotPage(): JSX.Element {
     <Card
       style={{
         height: "100vh",
-        border: "5px solid red",
         position: "relative",
       }}
     >
-      <Card style={{ border: "2px solid black" }}>
+      <Card>
         <Button onClick={handleLogout} style={{ margin: "20px" }}>
           Log Out
         </Button>
@@ -91,12 +95,16 @@ export default function chatBotPage(): JSX.Element {
           Send
         </Button>
       </Card>
-      <Card style={{ border: "4px solid orange" }}>
-        <Input value={response} />
+      <Card>
+        <TextArea value={response} />
       </Card>
       <Input
-        // style={{ position: "absolute", bottom: "10px", width: "93%" }}
-        style={{ width: "93%", margin: "10px" }}
+        style={{
+          width: "93%",
+          margin: "10px",
+          position: "absolute",
+          bottom: "5px",
+        }}
         onChange={(e) => {
           setMessage(e.target.value);
         }}
