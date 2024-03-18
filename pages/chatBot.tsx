@@ -70,7 +70,6 @@ export default function chatBotPage(): JSX.Element {
         { message }
       );
       setResponse(res.data.response);
-      // setResponse(res.data.choices[0])
     } catch (error) {
       console.error("An error occurred while sending the message: ", error);
     }
@@ -80,7 +79,6 @@ export default function chatBotPage(): JSX.Element {
     <Card
       style={{
         height: "100vh",
-        border: "5px solid red",
         position: "relative",
       }}
     >
@@ -96,7 +94,12 @@ export default function chatBotPage(): JSX.Element {
         <TextArea value={response} />
       </Card>
       <Input
-        style={{ width: "93%", margin: "10px" }}
+        style={{
+          width: "93%",
+          margin: "10px",
+          position: "absolute",
+          bottom: "5px",
+        }}
         onChange={(e) => {
           setMessage(e.target.value);
         }}
