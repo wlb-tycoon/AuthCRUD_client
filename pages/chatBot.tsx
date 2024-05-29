@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from "axios";
 
 const { TextArea } = Input;
 
-export default function chatBotPage(): JSX.Element {
+export default function ChatBotPage(): JSX.Element {
   const router: NextRouter = useRouter();
 
   interface person {
