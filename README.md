@@ -34,7 +34,7 @@ AuthCRUD_client is a web application built with Next.js, Ant Design, Fastify tha
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/lovin1015/AuthCRUD_client.git
+   git clone https://github.com/wlb-tycoon/AuthCRUD_client.git
    ```
 
 2. Install dependencies:
@@ -79,4 +79,4 @@ npm run dev
 ### Contributing
 
 - Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
-- If you have questions about the project, you can reach out to me at lovinhood1015@gmail.com
+- If you have questions about the project, you can reach out to me at @bandit_of_justice in Telegram
